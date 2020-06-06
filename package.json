@@ -1,0 +1,25 @@
+{
+  "name": "orbit-db-resolver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "go-ipfsd.js",
+  "dependencies": {
+    "go-ipfs-dep": "^0.5.1",
+    "ipfs-http-client": "^44.2.0",
+    "ipfsd-ctl": "^4.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phillmac/orbit-db-resolver.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/phillmac/orbit-db-resolver/issues"
+  },
+  "homepage": "https://github.com/phillmac/orbit-db-resolver#readme"
+}
