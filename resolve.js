@@ -4,7 +4,10 @@ async function resolve (ipfs, stopIpfs) {
 
   console.info({ hash, fetchTimeout })
 
+  const exiting = false
+
   const shutdown = async () => {
+    exiting = true
     console.info('Stopping...')
     try {
       await stopIpfs()
@@ -46,7 +49,7 @@ async function resolve (ipfs, stopIpfs) {
     }
   }
 
-  while (Array.from(queue.keys()).length > 0) {
+  while ((!exiting) && Array.from(queue.keys()).length > 0) {
     const itemHash = Array.from(queue.keys())[0]
     if (itemHash) {
       await resolveItem(Array.from(queue.keys())[0])
