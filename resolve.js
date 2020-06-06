@@ -4,7 +4,7 @@ async function resolve (ipfs, stopIpfs) {
 
   console.info({ hash, fetchTimeout })
 
-  const exiting = false
+  let exiting = false
 
   const shutdown = async () => {
     exiting = true
@@ -36,8 +36,8 @@ async function resolve (ipfs, stopIpfs) {
     console.info(`Resolving ${itemHash}`)
     try {
       const contents = await ipfs.dag.get(itemHash, { timeout: fetchTimeout })
-      //console.dir(contents)
-      const cids = [...contents.value.next, ...contents.value.refs].map(c=>c.toString())
+      // console.dir(contents)
+      const cids = [...contents.value.next, ...contents.value.refs].map(c => c.toString())
       const filtered = cids.filter(h => !(complete.has(h) || failed.has(h) || queue.has(h)))
       filtered.forEach(h => queue.add(h))
       complete.add(itemHash)
